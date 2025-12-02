@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IE Alberto Leveaú García - Picota</title>
+    <link rel="icon" href="alg.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilos generales */
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #34a8db;
+            --accent-color: #4fc3f7;
+            --light-color: #e3f2fd;
+            --dark-color: #0d47a1;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Encabezado */
+        header {
+          
+            background-image: url(bannerheader.png);
+    position: center;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1000;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin-right: 15px;
+            background-image: url('alg.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .school-info h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .school-info p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .announcement-bar {
+            background: var(--accent-color);
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 10px;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Navegación */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--secondary-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+          
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 18px 20px;
+            display: block;
+            transition: background 0.3s;
+            font-weight: 500;
+        }
+   .nav-links a:hover {
+            background-color: rgba(23, 10, 207, 0.986);
+            transform: translateY(-2px);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            z-index: 1;
+            border-radius: 8px;
+        }
+
+        .dropdown-content a {
+            color: var(--dark-color);
+            padding: 12px 16px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Carrusel Hero */
+        .hero-carousel {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+
+        .carousel-slides {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            flex: 0 0 33.333%;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            position: absolute;
+            background-image: center;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            left: 0;
+            top: 0;
+            
+        }
+
+        .slide-caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 800px;
+            width: 90%;
+        }
+
+        .slide-caption h3 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .slide-caption p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: var(--primary-color);
+        }
+
+        .carousel-btn.prev {
+            left: 20px;
+        }
+
+        .carousel-btn.next {
+            right: 20px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .carousel-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--primary-color);
+        }
+
+        footer { 
+            background: linear-gradient(135deg, var(--dark-color), #1565c0); 
+            color: white; 
+            padding: 60px 0 20px; 
+            margin-top: 100px; 
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+        
+        .footer-column p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+            transform: translateX(5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #b0b0b0;
+        }
+
+        @media (max-width:768px){
+            .mobile-menu{display:block;}
+            .nav-links{display:none; flex-direction:column; width:100%; position:absolute; top:100%; left:0; background:var(--secondary-color);}
+            .nav-links.active{display:flex;}
+            .controls{flex-direction:column;}
+            .search-box input,.filter-select{min-width:100%;}
+            .page-hero h1{font-size:2.4rem;}
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Modal de Bienvenida */
+        .welcome-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .welcome-modal.active {
+            display: flex;
+        }
+
+        .welcome-content {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .welcome-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .welcome-logo i {
+            font-size: 50px;
+            color: var(--primary-color);
+        }
+
+        .welcome-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .welcome-content p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .welcome-btn {
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .welcome-btn:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .welcome-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .welcome-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Modal de Vista Panorámica */
+        .panoramic-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .panoramic-modal.active {
+            display: flex;
+        }
+
+        .panoramic-content {
+            background: rgba(26, 35, 48, 0.9);
+            border-radius: 15px;
+            max-width: 900px;
+            width: 95%;
+            max-height: 90vh;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .panoramic-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .panoramic-header h3 {
+            font-size: 1.8rem;
+            color: white;
+            margin: 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .panoramic-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .panoramic-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* Relación 16:9 */
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .panoramic-footer {
+            background: rgba(26, 35, 48, 0.9);
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .explore-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .explore-btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: var(--secondary-color);
+                z-index: 100;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                background-color: rgba(255,255,255,0.1);
+            }
+
+            .hero-carousel {
+                height: 400px;
+            }
+
+            .slide-caption {
+                padding: 20px;
+            }
+
+            .slide-caption h3 {
+                font-size: 1.8rem;
+            }
+
+            .slide-caption p {
+                font-size: 1rem;
+            }
+
+            .welcome-content {
+                padding: 30px 20px;
+            }
+
+            .welcome-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .welcome-content p {
+                font-size: 1rem;
+            }
+
+            .panoramic-content {
+                width: 98%;
+            }
+
+            .panoramic-header h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modal de Bienvenida -->
+    <div class="welcome-modal" id="welcomeModal">
+        <div class="welcome-content">
+            <button class="welcome-close" id="welcomeClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="welcome-logo">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h2>¡Bienvenidos!</h2>
+            <p>Institución Educativa Integrada Técnica Alberto Leveaú García</strong></p>
+            <p>Formando líderes con valores desde 1961</p>
+            <button class="welcome-btn" id="welcomeBtn">Vista Panorámica</button>
+        </div>
+    </div>
+
+    <!-- Modal de Vista Panorámica -->
+    <div class="panoramic-modal" id="panoramicModal">
+        <div class="panoramic-content">
+            <div class="panoramic-header">
+                <h3>Vista Panorámica - Institución Educativa Alberto Leveaú García</h3>
+                <button class="panoramic-close" id="panoramicClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="video-container">
+                <iframe src="video/VISTA-PARANOMICA.mp4" 
+                        title="Vista panorámica de la Institución Educativa Alberto Leveaú García" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <div class="panoramic-footer">
+                <button class="explore-btn" id="exploreBtn">Explorar Página</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Encabezado -->
+    <header>
+        <div class="container header-top">
+            <div class="logo-container">
+                <div class="logo"></div>
+                <div class="school-info">
+                    <h1>Institución Educativa Integrada Técnica Alberto Leveaú García</h1>
+                    <p>Picota - San Martín - Perú</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="announcement-bar" id="announcementBar">
+                ¡Atención! Matrículas 2026 abiertas. Informes en secretaría académica.
+            </div>
+        </div>
+    </header>
+
+  <!-- Navegación -->
+    <nav>
+        <div class="container nav-container">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">INICIO</a></li>
+                <li class="dropdown">
+                    <a href="nosotros.html">NOSOTROS</a>
+                    <div class="dropdown-content">
+                        <a href="historia.html">Historia</a>
+                        <a href="quienes-somos.html">Quiénes Somos</a>
+                        <a href="mision-vision.html">Misión y Visión</a>
+                        <a href="organizacion.html">Organización Interna</a>
+                        <a href="valores.html">Valores Institucionales</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="propuesta-educativa.html">PROPUESTA EDUCATIVA</a>
+                    <div class="dropdown-content">
+                        <a href="primaria.html">Nivel Primaria</a>
+                        <a href="secundaria.html">Nivel Secundaria</a>
+                        <a href="areas-curriculares.html">Áreas Curriculares</a>
+                        <a href="horarios.html">Horarios</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="personal.html">PERSONAL INSTITUCIONAL</a>
+                    <div class="dropdown-content">
+                        <a href="director.html">Director</a>
+                        <a href="directivos.html">Directivos Académicos</a>
+                        <a href="coordinadores.html">Coordinadores</a>
+                        <a href="docentes.html">Personal Docente</a>
+                        <a href="administrativo.html">Personal Administrativo</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="documentos.html">DOCUMENTOS DE GESTIÓN</a>
+                    <div class="dropdown-content">
+                        <a href="gestion.html">De Gestión</a>
+                        <a href="administrativos.html">Administrativos</a>
+                        <a href="programas.html">Programas Curriculares</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="Galeria.html">GALERIA</a>
+                    <div class="dropdown-content">
+                        <a href="Fotos.html">Fotos</a>
+                        <a href="videos.html">Videos</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="CONTACTOS.HTML">CONTACTOS</a>
+                    <div class="dropdown-content">
+                        <a href="INFORMACIONDEUBICACION.HTML">Información de Ubicación</a>
+                        <a href="NUMEROTLEFONICOS.HTML">Numeros Telefonicos</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="PAGINAEDUCATIVA.HTML">PAGINA EDUCATIVA</a>
+                    <div class="dropdown-content">
+                        <a href="STOPBULLING.HTML">Stop Bullying</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="otros.html">OTROS</a>
+                    <div class="dropdown-content">
+                        <a href="TALLERES.HTML">Talleres</a>
+                        <a href="KIOSCOS.HTML">Kioscos</a>
+                        <a href="infraestructura.html">Infraestructura</a>
+                        <a href="CONCURSOS.HTML">Concursos</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu">☰</div>
+        </div>
+    </nav>
+
+    <!-- Carrusel Hero -->
+    <section id="inicio" class="hero-carousel">
+        <div class="carousel-slides" id="carouselSlides">
+            <div class="carousel-slide">
+                <img src="img/infra1.jpg" style="background-image: url(banne1.jpg);">
+                <div class="slide-caption">
+                  <h2>Bienvenidos a Nuestra Institución Educativa</h2>
+                <p>Formando líderes con valores y excelencia académica desde 1961</p>
+                    <a href="nosotros.html" class="btn" data-href="nosotros.html">Conócenos Más</a>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="img/infra2.jpg" style="background-image: url(img\ 2.jpg);">
+                <div class="slide-caption">
+                      <h2>Excelencia Educativa</h2>
+                <p>Comprometidos con el desarrollo integral de nuestros estudiantes</p>
+                    <a href="propuesta-educativa.html" class="btn" data-href="propuesta-educativa.html">Nuestra Propuesta</a>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="img/infra3.jpg" style="background-image: url('fddd62ec-a404-436b-9d2c-9c3855148027.jpg');">
+                <div class="slide-caption">
+                    <h2>Comunidad Educativa</h2>
+                <p>Trabajamos juntos por una educación de calidad para todos</p>
+                    <a href="contactos.html" class="btn" data-href="contactos.html">Contáctanos</a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-btn prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-btn next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        <div class="carousel-dots" id="carouselDots"></div>
+    </section>
+
+   <!-- NUEVO FOOTER -->
+      <!-- NUEVO FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Institución Educativa Alberto Leveaú García</h3>
+                    <p>Formando líderes con valores desde 1961. Comprometidos con la excelencia educativa en Picota y la región San Martín.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="propuesta-educativa.html">Propuesta Educativa</a></li>
+                        <li><a href="galeria.html">Galería</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                         <li><a href="CONTACTOS.HTML"><i class="fas fa-phone"></i>S/N</a></li>
+                        <li><a href="CONTACTOS.HTML"><i class="fas fa-envelope"></i> ieeitalgpicota@gmail.com</a></li>
+                        <li><a href="CONTACTOS.HTML"><i class="fas fa-map-marker-alt"></i> Car. Fernando Belaunde Terry , Picota</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Institución Educativa Alberto Leveaú García - Picota. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Mostrar modal de bienvenida al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            const welcomeModal = document.getElementById('welcomeModal');
+            const welcomeBtn = document.getElementById('welcomeBtn');
+            const welcomeClose = document.getElementById('welcomeClose');
+            const panoramicModal = document.getElementById('panoramicModal');
+            const panoramicClose = document.getElementById('panoramicClose');
+            const exploreBtn = document.getElementById('exploreBtn');
+            
+            // Mostrar el modal de bienvenida después de un breve retraso
+            setTimeout(() => {
+                welcomeModal.classList.add('active');
+            }, 500);
+            
+            // Cerrar modal de bienvenida al hacer clic en el botón "Vista Panorámica"
+            welcomeBtn.addEventListener('click', function() {
+                welcomeModal.classList.remove('active');
+                // Mostrar modal de vista panorámica
+                setTimeout(() => {
+                    panoramicModal.classList.add('active');
+                }, 300);
+            });
+            
+            // Cerrar modal de bienvenida al hacer clic en la X
+            welcomeClose.addEventListener('click', function() {
+                welcomeModal.classList.remove('active');
+            });
+            
+            // Cerrar modal de bienvenida al hacer clic fuera del contenido
+            welcomeModal.addEventListener('click', function(e) {
+                if (e.target === welcomeModal) {
+                    welcomeModal.classList.remove('active');
+                }
+            });
+            
+            // Cerrar modal de vista panorámica al hacer clic en la X
+            panoramicClose.addEventListener('click', function() {
+                panoramicModal.classList.remove('active');
+            });
+            
+            // Cerrar modal de vista panorámica al hacer clic fuera del contenido
+            panoramicModal.addEventListener('click', function(e) {
+                if (e.target === panoramicModal) {
+                    panoramicModal.classList.remove('active');
+                }
+            });
+            
+            // Cerrar modal de vista panorámica y mostrar página al hacer clic en "Explorar Página"
+            exploreBtn.addEventListener('click', function() {
+                panoramicModal.classList.remove('active');
+            });
+        });
+
+        // Menú móvil
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Carrusel
+        const carouselSlides = document.getElementById('carouselSlides');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const carouselDots = document.getElementById('carouselDots');
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+
+        // Crear dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            carouselDots.appendChild(dot);
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            carouselSlides.style.transform = `translateX(-${slideIndex * 33.333}%)`;
+
+            // Actualizar dots
+            document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === slideIndex);
+            });
+
+            // Restaurar enlace correcto
+            const btn = slides[slideIndex].querySelector('.btn');
+            const correctHref = btn.getAttribute('data-href');
+            btn.setAttribute('href', correctHref);
+            console.log(`[${new Date().toISOString()}] Slide ${slideIndex}: Asignado href=${correctHref}`);
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            goToSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            goToSlide(currentSlide);
+        }
+
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+
+        // Cambio automático de slides cada 5 segundos
+        setInterval(nextSlide, 5000);
+
+        // Cambiar avisos
+        const announcements = [
+            "¡Atención! Matrículas 2024 abiertas. Informes en secretaría académica.",
+            "Convocatoria para taller de reforzamiento en matemáticas. Inscríbete ya.",
+            "Reunión de padres de familia: viernes 15 de noviembre, 3:00 pm.",
+            "Inscripciones abiertas para el taller de danzas folklóricas."
+        ];
+        let currentAnnouncement = 0;
+        const announcementBar = document.getElementById('announcementBar');
+
+        function changeAnnouncement() {
+            currentAnnouncement = (currentAnnouncement + 1) % announcements.length;
+            announcementBar.textContent = announcements[currentAnnouncement];
+        }
+
+        setInterval(changeAnnouncement, 15000);
+
+        // Inicializar enlaces al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            slides.forEach((slide, index) => {
+                const btn = slide.querySelector('.btn');
+                const correctHref = btn.getAttribute('data-href');
+                btn.setAttribute('href', correctHref);
+                console.log(`[${new Date().toISOString()}] Inicializado: ${btn.textContent} con href=${correctHref}`);
+            });
+            goToSlide(0);
+        });
+
+        // Monitorear cambios no deseados en los enlaces
+        slides.forEach(slide => {
+            const btn = slide.querySelector('.btn');
+            btn.addEventListener('click', (e) => {
+                const currentHref = btn.getAttribute('href');
+                const expectedHref = btn.getAttribute('data-href');
+                if (currentHref !== expectedHref) {
+                    console.warn(`[${new Date().toISOString()}] ¡Alerta! El href cambió de ${expectedHref} a ${currentHref}`);
+                    btn.setAttribute('href', expectedHref);
+                    e.preventDefault();
+                    window.location.href = expectedHref;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
